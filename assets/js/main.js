@@ -36,3 +36,17 @@ if (age < 18) {
 
 document.writeln(` questo e il costo del biglietto ${priceFinal.toFixed(2)}`);
 console.log(priceFinal)
+
+// input region
+const userKm = Number(document.getElementById("kilometre_user").value);
+const userAge = Number(document.getElementById("age_user").value);
+let priceTrial
+
+const generate = document.querySelector("button")
+generate.addEventListener('click', 
+function () {
+    priceTrial = userKm * priceTariff;
+    console.log(priceTrial);
+    
+}
+)
