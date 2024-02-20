@@ -12,27 +12,26 @@
     <title>Document</title>
 </head>
 <body>
-    
+
     <section id="data">
         <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
         <div class="container_data">
             <div class="input_data">
                 <div class="form">
-                    <label for="fname">Nome Cognome</label><br>
-                    <input type="text" id="fname" name="fname"><br>
+                    <label for="fullName">Nome Cognome</label><br>
+                    <input type="text" id="fullName" name="fname" placeholder=" Nome Cognome" value="">
                 </div>
                 <div class="form">
-                    <label for="fname">Km da percorrere</label><br>
-                    <input type="text" id="fname" name="fname"><br>
+                    <label for="userKm">Km da percorrere</label><br>
+                    <input type="number" id="userKm" name="userKm" placeholder=" Km" value="">
                 </div>
                     <div class="form">
                         <label for="fname">Fascia d'eta</label><br>
                         <div class="age" style="width:200px;">
                             <select>
-                            <option value="0">Fascia d'eta: </option>
-                            <option value="1">Maggiorenne</option>
-                            <option value="2">over65</option>
-                            <option value="3">Standard</option>
+                                <option value="0">Maggiorenne</option>
+                                <option value="1">over65</option>
+                                <option value="2">Standard</option>
                             </select>
                         </div>
                     </div>
@@ -50,6 +49,37 @@
         </div>
     </section>
 
+    <section id="my_ticket">
+        <h1>IL TUO BIGLIETTO</h1>
+        <div class="container_ticket">
+            <h3>DETTAGLIO PASSEGGERI</h3>
+            <div class="card_ticket">
+                <div class="left_ticket col-3">
+                    <h3>NOME PASSEGGERO</h3>
+                    <h4 id="name">Lorem</h4>
+               </div>
+               <div class="right_ticket col-9">
+                <div class="discount col-3">
+                    <h4>Offerta</h4>
+                    <span>lorem</span>
+                </div>
+                <div class="carriage col-3">
+                    <h4>Carrozza</h4>
+                    <span>lorem</span>
+                </div>
+                <div class="code_cp col-3">
+                    <h4>Codice CP</h4>
+                    <span>lorem</span>
+                </div>
+                <div class="cost-ticket col-3">
+                    <h4>Costo biglietto</h4>
+                    <span>lorem</span>
+                </div>
+               </div>
+            </div>
+
+        </div>
+    </section>
 
     <script src="./assets/js/main.js"></script>
 </body>
