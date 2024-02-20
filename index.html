@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- /font -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -8,9 +13,42 @@
 </head>
 <body>
     
-    <input type="text" id="kilometre_user" value="">
-    <input type="text" id="age_user">
-    <button>genera</button>
+    <section id="data">
+        <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
+        <div class="container_data">
+            <div class="input_data">
+                <div class="form">
+                    <label for="fname">Nome Cognome</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                </div>
+                <div class="form">
+                    <label for="fname">Km da percorrere</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                </div>
+                    <div class="form">
+                        <label for="fname">Fascia d'eta</label><br>
+                        <div class="age" style="width:200px;">
+                            <select>
+                            <option value="0">Fascia d'eta: </option>
+                            <option value="1">Maggiorenne</option>
+                            <option value="2">over65</option>
+                            <option value="3">Standard</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="button_data">
+                    <button id="generated">Genera</button>
+                    <button id="cancel">Annulla</button>   
+                </div>
+
+            </div>
+
+            
+        </div>
+    </section>
 
 
     <script src="./assets/js/main.js"></script>

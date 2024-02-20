@@ -1,3 +1,65 @@
 body{
-    background-color: aquamarine;
+    background-color: purple;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+h1{
+    color: white;
+}
+.container_data{
+    width: 80%;
+    max-width: 1400px;
+    margin: auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px ;
+
+    & .input_data{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly ;
+        padding-bottom: 70px;
+
+        & .form{
+            & label{
+                color: purple;
+              
+            }
+            & input{
+                border:2px solid purple;
+                border-radius: 5px;
+                height: 30px;
+                width: 200px;
+                margin-top: 20px ;
+            }
+            & .age > select{
+                border:2px solid purple;
+                border-radius: 5px;
+                height: 36px;
+                width: 200px;
+                margin-top: 20px ; 
+            }
+        }
+    }
+
+    & .button_data{
+
+        
+        & button{
+            background-color: lightgray;
+            color: purple;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+    }
+}
+#data{
+    text-align: center;
 }
