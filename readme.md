@@ -19,3 +19,17 @@ Solo una volta che il milestone 1 sarà completo e funzionante allora realizzere
 Nota: Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 
 # steps
+
+step1: chiedere kilo, eta
+
+step 2: definire il prezzo senza nessun sconto
+
+step 3: applicare sconto in base l'eta
+
+# tools
+
+- console.log
+- prompt()
+- number
+- let/const
+- if/else if
