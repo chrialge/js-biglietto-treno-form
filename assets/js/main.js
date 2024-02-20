@@ -37,16 +37,38 @@
 // document.writeln(` questo e il costo del biglietto ${priceFinal.toFixed(2)}`);
 // console.log(priceFinal)
 
-// input region
-const userKm = Number(document.getElementById("kilometre_user"));
-const userAge = Number(document.getElementById("age_use"));
-let priceTrial
+// utilies variables region
+let userKm = document.getElementById("kilometre_user");
+let userAge = document.getElementById("age_user");
+let priceFinal
+const priceTariff = 0.21;
 
-const generate = document.querySelector("button")
+//variable button
+const generate = document.getElementById("generated")
 generate.addEventListener('click', 
 function () {
-    priceTrial = Number(priceTrial.value);
-    priceTrial = userKm * (priceTariff);
-    console.log(priceTrial);
+    userKm = userKm.value;
+    console.log(userAge.value);
+    userAge = userAge.value;
+
+    priceFinal = userKm * priceTariff;
+    console.log(priceFinal);
+
+    const discountUnderAge = priceFinal/5;
+    const discountOverAge = (priceFinal / 5) *2;
+
+
+    if (userAge < 18) {
+        priceFinal = priceFinal - discountUnderAge;
+        console.log(priceFinal);
+
+    } else if(userAge > 65){
+        priceFinal = priceFinal - discountOverAge;
+        console.log(priceFinal);
+
+    }
+    document.writeln(` questo e il costo del biglietto ${priceFinal.toFixed(2)}`);
+    console.log(priceFinal)
+
 }
 )
