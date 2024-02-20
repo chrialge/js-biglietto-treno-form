@@ -1,75 +1,82 @@
-// console.log('hello');
-
-// const priceTariff = 0.21;
-
-// /*
-//     step1: chiedere kilometri e l'eta
-// */
-
-// const km = Number(prompt("dimmi quanti km vuoi fare?"));
-// console.log(km);
-
-// let age = Number(prompt('dimmi la tua eta?'));
-// console.log(age);
-
-// /*
-//     step 2: definire il prezzo senza nessun sconto
-// */
-
-// let priceForKilometre = km * priceTariff;
-// console.log(priceForKilometre);
-// // variabili sconto
-// const discountUnderAge = priceForKilometre/5;
-// const discountOverAge = (priceForKilometre / 5) *2;
-
-// /*
-//     step 3: applicare sconto in base l'eta
-// */
-// let priceFinal
-// if (age < 18) {
-//     priceFinal = priceForKilometre - discountUnderAge;
-//     console.log(priceFinal);
-// } else if (age > 65){
-//     priceFinal = priceForKilometre - discountOverAge;
-//     console.log(priceFinal);
-// }
-
-// document.writeln(` questo e il costo del biglietto ${priceFinal.toFixed(2)}`);
-// console.log(priceFinal)
-
-// utilies variables region
-const 
+/*
+    step1: racchiudere gli input nelle variabili:
+    - nome
+    - km
+    - prezzo tariffario
+    - prezzo finale
+*/
+let userName = document.getElementById("fullName");
 let userKm = document.getElementById("kilometre_user");
-let userAge = document.getElementById("age_user");
-let priceFinal
+let priceFinal;
 const priceTariff = 0.21;
 
-//variable button
-const generate = document.getElementById("generated")
+/*
+step 2: creare la variabile del button e crea un evento collegato ad esso per generare il biglietto e dentro esso crea una funzione che genera i dati 
+*/
+const generate = document.getElementById("generated");
 generate.addEventListener('click', 
 function () {
+    /*
+    step 2b: includi il valore imesso nel proprio input nella variabile (km e nome)
+    */
+    userName = userName.value;
     userKm = userKm.value;
-    console.log(userAge.value);
-    userAge = userAge.value;
 
+    /*
+    step 2c: calcola il prezzo standard e crea due variabili per lo sconto
+    */
     priceFinal = userKm * priceTariff;
-    console.log(priceFinal);
-
     const discountUnderAge = priceFinal/5;
     const discountOverAge = (priceFinal / 5) *2;
 
+    /*
+    step 2d: crea due variabili per prendere l'option nel select
+    */
+    const x = document.getElementById("age_user").selectedIndex;
+    const y = document.getElementById("age_user").options;
 
-    if (userAge = 0 ) {
+    /*
+    step 3: crea variabili per i valori che verrano imessi nel biglietto 
+    */
+    // div.container
+    let textDiscount = 'biglietto standard';
+    // div.carriage
+    const numberCarriage = Math.floor(Math.random() * 10);
+    // div.code-cp
+    const codeCp = Math.floor(Math.random() * 100000);
+    // variabile del prezzo in base alla fascia eta
+    if (y[x].index == 2 ) {
         priceFinal = priceFinal - discountUnderAge;
-        console.log(priceFinal);
-
-    } else if(userAge = 1){
+        textDiscount = "Biglietto 20% di sconto"
+    } else if(y[x].index == 1){
         priceFinal = priceFinal - discountOverAge;
-        console.log(priceFinal);
-
+        textDiscount = "Biglietto 40% di sconto"
+    }
+    
+    if (isNaN(priceFinal)) {
+        alert('devi mettere il numero di kilometri')
     }
 
-    console.log(priceFinal);
-    document.getElementById("name").innerHTML(ciao);
+    /*
+    step 4: immetti i valori ottenuti nei corrispotivi
+    */
+
+    document.getElementById("name").innerHTML = userName;
+    document.getElementById("text_discount").innerHTML = textDiscount;
+    document.getElementById("number_carriage").innerHTML = numberCarriage;
+    document.getElementById("number_code_cp").innerHTML = codeCp;
+    document.getElementById("price_train").innerHTML = priceFinal.toFixed(2);
+    
+
+
 }
+)
+/*
+step 5: se clicca su annulla riaggiorna la pagina
+*/
+const cancel = document.getElementById("cancel")
+cancel.addEventListener('click',
+    function () {
+    location.reload();
+    }
 )

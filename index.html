@@ -19,19 +19,19 @@
             <div class="input_data">
                 <div class="form">
                     <label for="fullName">Nome Cognome</label><br>
-                    <input type="text" id="fullName" name="fname" placeholder=" Nome Cognome" value="">
+                    <input type="text" id="fullName" name="fname" placeholder=" Nome Cognome" value="" required>
                 </div>
                 <div class="form">
                     <label for="userKm">Km da percorrere</label><br>
-                    <input type="number" id="userKm" name="userKm" placeholder=" Km" value="">
+                    <input type="number" id="kilometre_user" name="userKm" placeholder=" Km" value="" required>
                 </div>
                     <div class="form">
                         <label for="fname">Fascia d'eta</label><br>
                         <div class="age" style="width:200px;">
-                            <select>
+                            <select id="age_user">
                                 <option value="0">Maggiorenne</option>
-                                <option value="1">over65</option>
-                                <option value="2">Standard</option>
+                                <option value="1">Over65</option>
+                                <option value="2">Minorenne</option>
                             </select>
                         </div>
                     </div>
@@ -56,24 +56,24 @@
             <div class="card_ticket">
                 <div class="left_ticket col-3">
                     <h3>NOME PASSEGGERO</h3>
-                    <h4 id="name">Lorem</h4>
+                    <h4 id="name"></h4>
                </div>
                <div class="right_ticket col-9">
                 <div class="discount col-3">
                     <h4>Offerta</h4>
-                    <span>lorem</span>
+                    <span id="text_discount"></span>
                 </div>
                 <div class="carriage col-3">
                     <h4>Carrozza</h4>
-                    <span>lorem</span>
+                    <span id="number_carriage"></span>
                 </div>
                 <div class="code_cp col-3">
                     <h4>Codice CP</h4>
-                    <span>lorem</span>
+                    <span id="number_code_cp"></span>
                 </div>
                 <div class="cost-ticket col-3">
                     <h4>Costo biglietto</h4>
-                    <span>lorem</span>
+                    <span id="price_train"></span>
                 </div>
                </div>
             </div>
