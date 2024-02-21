@@ -5,8 +5,8 @@
     - prezzo tariffario
     - prezzo finale
 */
-let userName = document.getElementById("fullName");
-let userKm = document.getElementById("kilometre_user");
+const elementUserName = document.getElementById("fullName");
+const elementUserKm = document.getElementById("kilometre_user");
 let priceFinal;
 const priceTariff = 0.21;
 
@@ -19,13 +19,13 @@ function () {
     /*
     step 2b: includi il valore imesso nel proprio input nella variabile (km e nome)
     */
-    userName = userName.value;
-    userKm = userKm.value;
+    let valueUserName = elementUserName.value;
+    let valueUserKm = elementUserKm.value;
 
     /*
     step 2c: calcola il prezzo standard e crea due variabili per lo sconto
     */
-    priceFinal = userKm * priceTariff;
+    priceFinal = valueUserKm * priceTariff;
     const discountUnderAge = priceFinal/5;
     const discountOverAge = (priceFinal / 5) *2;
 
@@ -61,7 +61,7 @@ function () {
     step 4: immetti i valori ottenuti nei corrispotivi
     */
 
-    document.getElementById("name").innerHTML = userName;
+    document.getElementById("name").innerHTML = valueUserName;
     document.getElementById("text_discount").innerHTML = textDiscount;
     document.getElementById("number_carriage").innerHTML = numberCarriage;
     document.getElementById("number_code_cp").innerHTML = codeCp;
