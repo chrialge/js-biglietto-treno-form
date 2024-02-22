@@ -1,82 +1,83 @@
-/*
-    step1: racchiudere gli input nelle variabili:
-    - nome
-    - km
-    - prezzo tariffario
-    - prezzo finale
-*/
+// crea le variabili selezionando gli input poi variabili poi variabili per il prezzo
+const elementUserAge = document.getElementById("age_user")
 const elementUserName = document.getElementById("fullName");
 const elementUserKm = document.getElementById("kilometre_user");
 let priceFinal;
 const priceTariff = 0.21;
 
+// variabile che seleziona la card dove incolleremo i biglietti
+const ticketElement = document.querySelector(".ticket");
+
 /*
-step 2: creare la variabile del button e crea un evento collegato ad esso per generare il biglietto e dentro esso crea una funzione che genera i dati 
+crea una funzione con un form che si aziona quando clicchiamo sul button generate
 */
-const generate = document.getElementById("generated");
-generate.addEventListener('click', 
-function () {
-    /*
-    step 2b: includi il valore imesso nel proprio input nella variabile (km e nome)
-    */
-    let valueUserName = elementUserName.value;
-    let valueUserKm = elementUserKm.value;
+document.querySelector('form').addEventListener('submit', function (e) {
 
-    /*
-    step 2c: calcola il prezzo standard e crea due variabili per lo sconto
-    */
-    priceFinal = valueUserKm * priceTariff;
-    const discountUnderAge = priceFinal/5;
-    const discountOverAge = (priceFinal / 5) *2;
+    e.preventDefault();
+    // creare le variabili che raccogliere le il valore degli input e select
+    const userName = elementUserName.value;
+    const userKm = Number(elementUserKm.value);
+    const userAge = Number(elementUserAge.value);
+    console.log(userAge, userKm, userName);
 
-    /*
-    step 2d: crea due variabili per prendere l'option nel select
-    */
-    const x = document.getElementById("age_user").selectedIndex;
-    const y = document.getElementById("age_user").options;
+    //  creo delle variabie peril prezzo strandard senza sconto
+    let priceFinal = priceTariff * userKm;
+    console.log(priceFinal);
 
-    /*
-    step 3: crea variabili per i valori che verrano imessi nel biglietto 
+    // creao vriabili per lo sconto
+    let discountTicket = 'Biglietto Standard';
+    const discountJunior = priceFinal * 0.2;
+    const discountSenior = priceFinal * 0.4;
+
+    /* creo una condizione in cui: 
+        -Se sei minorene 20% off 
+        - Altrimenti Se sei over 65 40% off
     */
-    // div.container
-    let textDiscount = 'biglietto standard';
-    // div.carriage
-    const numberCarriage = Math.floor(Math.random() * 10);
-    // div.code-cp
-    const codeCp = Math.floor(Math.random() * 100000);
-    // variabile del prezzo in base alla fascia eta
-    if (y[x].index == 2 ) {
-        priceFinal = priceFinal - discountUnderAge;
-        textDiscount = "Biglietto 20% di sconto"
-    } else if(y[x].index == 1){
-        priceFinal = priceFinal - discountOverAge;
-        textDiscount = "Biglietto 40% di sconto"
-    }
-    
-    if (isNaN(priceFinal)) {
-        alert('devi mettere il numero di kilometri')
+    if (userAge === 1) {
+        priceFinal = priceFinal - discountJunior;
+        discountTicket =  'Sconto del 20%';
+    }else if(userAge ===2){
+        priceFinal = priceFinal - discountSenior
+        discountTicket =  'Sconto del 40%';
     }
 
-    /*
-    step 4: immetti i valori ottenuti nei corrispotivi
-    */
+    // stampa il biglietto che puo essere cambiato in base alle condizioni
+    console.log(priceFinal);
 
-    document.getElementById("name").innerHTML = valueUserName;
-    document.getElementById("text_discount").innerHTML = textDiscount;
-    document.getElementById("number_carriage").innerHTML = numberCarriage;
-    document.getElementById("number_code_cp").innerHTML = codeCp;
-    document.getElementById("price_train").innerHTML = priceFinal.toFixed(2);
-    
+    // creo due vriabili per numeri randomici
+    const wagonNumber = Math.floor(Math.random()* 10) + 1;
+    const codeCpNumber = Math.floor(Math.random() * 100000) +1;
 
+    // un console.log per vedere se prende tutti i dati
+    console.log(codeCpNumber, wagonNumber, priceFinal, userName);
 
-}
-)
-/*
-step 5: se clicca su annulla riaggiorna la pagina
-*/
-const cancel = document.getElementById("cancel")
-cancel.addEventListener('click',
-    function () {
-    location.reload();
-    }
-)
+    // crea una variabile che contiene il markup del HTML
+    const markup = `
+            <div class="card_ticket">
+                <div class="left_ticket col-3">
+                    <h3>NOME PASSEGGERO</h3>
+                    <h4>${userName}</h4>
+                </div>
+                <div class="right_ticket col-9">
+                    <div class="discount col-3">
+                        <h4>Offerta</h4>
+                        <span>${discountTicket}</span>
+                    </div>
+                    <div class="carriage col-3">
+                        <h4>Carrozza</h4>
+                        <span>${wagonNumber}</span>
+                    </div>
+                    <div class="code_cp col-3">
+                        <h4>Codice CP</h4>
+                        <span>${codeCpNumber}</span>
+                    </div>
+                    <div class="cost-ticket col-3">
+                        <h4>Costo biglietto</h4>
+                        <span>${priceFinal.toFixed(2)}</span>
+                    </div>
+                </div>
+            </div>
+    `;
+
+    ticketElement.insertAdjacentHTML('beforeend', markup);
+})

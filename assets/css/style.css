@@ -29,10 +29,10 @@ h1{
 
         & .input_data{
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             justify-content: space-evenly ;
-            padding-bottom: 70px;
 
             & .form{
                 & label{
@@ -58,7 +58,8 @@ h1{
         }
 
         & .button_data{
-
+            width: 100%;
+            margin-top: 50px;
             
             & button{
                 background-color: lightgray;
@@ -96,6 +97,7 @@ h1{
         box-shadow: 1px 1px 5px ;
 
         & .card_ticket{
+            margin-bottom: 30px;
             border-top: 1px solid gray;
             border-bottom: 1px solid gray;
             display: flex;
