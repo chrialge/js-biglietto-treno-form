@@ -9,7 +9,8 @@ const priceTariff = 0.21;
 const ticketElement = document.querySelector(".ticket");
 
 /*
-crea una funzione con un form che si aziona quando clicchiamo sul button generate
+crea un evento con un form che si aziona quando clicchiamo sul button generate
+(ci rimanda indietro dagli input il biglietto)
 */
 document.querySelector('form').addEventListener('submit', function (e) {
 
@@ -23,6 +24,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
     //  creo delle variabie peril prezzo strandard senza sconto
     let priceFinal = priceTariff * userKm;
     console.log(priceFinal);
+
 
     // creao vriabili per lo sconto
     let discountTicket = 'Biglietto Standard';
@@ -40,6 +42,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
         priceFinal = priceFinal - discountSenior
         discountTicket =  'Sconto del 40%';
     }
+
 
     // stampa il biglietto che puo essere cambiato in base alle condizioni
     console.log(priceFinal);
@@ -81,4 +84,11 @@ document.querySelector('form').addEventListener('submit', function (e) {
 
     //aggiunge al html i card_ticket
     ticketElement.insertAdjacentHTML('beforeend', markup);
-})
+});
+
+// crea un evento con un form che si aziona quando clicchiamo sul button reset (ricarica la pagina)
+document.querySelector('form').addEventListener('reset', function (e) {
+
+    e.preventDefault()
+    location.reload();
+});
