@@ -79,5 +79,6 @@ document.querySelector('form').addEventListener('submit', function (e) {
             </div>
     `;
 
+    //aggiunge al html i card_ticket
     ticketElement.insertAdjacentHTML('beforeend', markup);
 })
